@@ -1,16 +1,22 @@
-### Hi there 👋
+<h2 align="center">I'm BridgerB, a JavaScript developer.</h2>
+<p align="center">I do fullstack JavaScript development with SvelteKit.
+<br>I spend a lot of time learning about Linux. 
+<br>I recently switches from Archlinux to NixOS.</p>
 
-<!--
-**BridgerB/BridgerB** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+### 📘 Languages
+- JavaScript
+- HTML / CSS
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 💻 Devices
+- PC: Linux (NixOS, Archlinux, Debian++), Windows 11
+- MacBook Air  2019, Ventura
+- iPhone 12 Pro
+
+### 🔗 Contact
+- [Linkedin](https://www.linkedin.com/in/bridgerb/)
+  
+---
+
+![BridgerB+ GitHub stats](https://github-readme-stats.vercel.app/api?username=BridgerB&show_icons=true&theme=radical&count_private=true)
