@@ -1,7 +1,7 @@
 <h2 align="center">I'm BridgerB, a JavaScript developer.</h2>
 <p align="center">I do fullstack JavaScript development with SvelteKit.
 <br>I spend a lot of time learning about Linux. 
-<br>I recently switches from Archlinux to NixOS.</p>
+<br>I recently switches from Arch Linux to NixOS.</p>
 
 ---
 
