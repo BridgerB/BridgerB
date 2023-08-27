@@ -16,7 +16,4 @@
 
 ### 🔗 Contact
 - [Linkedin](https://www.linkedin.com/in/bridgerb/)
-  
----
 
-![BridgerB+ GitHub stats](https://github-readme-stats.vercel.app/api?username=BridgerB&show_icons=true&theme=radical&count_private=true)
