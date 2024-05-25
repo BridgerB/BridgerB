@@ -1,16 +1,19 @@
-<h2 align="center">I'm BridgerB, a JavaScript developer.</h2>
-<p align="center">I do fullstack JavaScript development with SvelteKit.
+<h2 align="center">Hello World!</h2>
+<h3 align="center">My name is Bridger Belyea.</h3>
+<p align="center">I am a full-stack developer.</p>
 
 ---
 
 ### 📘 Languages
+- HTML
+- CSS
 - JavaScript
-- HTML / CSS
 
 ### 💻 Devices
-- PC: NixOS
-- ThinkPad: NixOS
-- Pixel 7 Pro
+- PC (NixOS)
+- ThinkPad (NixOS)
+- Macbook
+- iPhone
 
 ### 🔗 Contact
 - [Linkedin](https://www.linkedin.com/in/bridgerb/)
