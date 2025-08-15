@@ -15,6 +15,12 @@
 - Macbook
 - iPhone
 
-### 🔗 Contact
-- [Linkedin](https://www.linkedin.com/in/bridgerb/)
+### 🌐 Website
+- [bridgerb.com](https://bridgerb.com)
 
+### 🎨 Portfolio
+- [bridgerb.com/portfolio](https://bridgerb.com/portfolio)
+
+### 🔗 Contact
+- [bridgerb.com/contact](https://bridgerb.com/contact)
+- [linkedin.com/in/bridgerb](https://www.linkedin.com/in/bridgerb/)
