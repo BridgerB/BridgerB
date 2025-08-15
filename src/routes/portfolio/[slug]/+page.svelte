@@ -30,7 +30,6 @@
 
 			<div class="project-details">
 				<div class="detail-section">
-					<h3>Project URL</h3>
 					<a
 						href="https://{project.url}"
 						target="_blank"
@@ -39,6 +38,11 @@
 					>
 						{project.url}
 					</a>
+					{#if project.released}
+						<div class="project-published">
+							Released {new Date(project.released).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+						</div>
+					{/if}
 				</div>
 
 				<div class="detail-section">
@@ -177,6 +181,14 @@
 
 	.project-url:hover {
 		text-decoration: underline;
+	}
+
+	.project-published {
+		text-align: center;
+		color: var(--text);
+		font-size: 0.9rem;
+		margin-top: 0.8rem;
+		opacity: 0.8;
 	}
 
 	@media (max-width: 768px) {

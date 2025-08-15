@@ -8,6 +8,7 @@ export interface Project {
   description: string;
   technologies: string[];
   features: string[];
+  released: string;
 }
 
 export const projects: Project[] = [
@@ -35,6 +36,7 @@ export const projects: Project[] = [
       "Invoice Generation",
       "Business Analytics Dashboard",
     ],
+    released: "2024-10-04T00:00:00.000Z",
   },
   {
     slug: "poshmark-reports",
@@ -65,6 +67,7 @@ export const projects: Project[] = [
       "Interactive Data Visualization",
       "Advanced Search & Filtering",
     ],
+    released: "2025-06-29T00:00:00.000Z",
   },
   {
     slug: "colors",
@@ -89,6 +92,7 @@ export const projects: Project[] = [
       "Real-time Color Analysis",
       "Multiple Sampling Rates",
     ],
+    released: "2024-10-06T00:00:00.000Z",
   },
   {
     slug: "talked-of",
@@ -114,6 +118,7 @@ export const projects: Project[] = [
       "Channel-based Filtering",
       "Pagination & Results Management",
     ],
+    released: "2022-12-16T00:00:00.000Z",
   },
   {
     slug: "sol",
@@ -138,6 +143,7 @@ export const projects: Project[] = [
       "Help Mode with Time Slider",
       "Astronomical Precision",
     ],
+    released: "2024-04-14T00:00:00.000Z",
   },
   {
     slug: "renewable-wardrobe",
@@ -155,6 +161,7 @@ export const projects: Project[] = [
       "Multi-Platform Shopping",
       "Environmental Impact Messaging",
     ],
+    released: "2023-01-09T00:00:00.000Z",
   },
   {
     slug: "pyramids",
@@ -179,6 +186,7 @@ export const projects: Project[] = [
       "Historical Architecture Analysis",
       "Scientific Data Comparison",
     ],
+    released: "2025-06-06T00:00:00.000Z",
   },
   {
     slug: "btw",
@@ -203,6 +211,7 @@ export const projects: Project[] = [
       "Clean Minimal Interface",
       "Service Worker Support",
     ],
+    released: "2025-06-21T00:00:00.000Z",
   },
   {
     slug: "viewfinder",
@@ -229,6 +238,7 @@ export const projects: Project[] = [
       "Geographic Data Visualization",
       "Custom Database Integration",
     ],
+    released: "2024-04-21T00:00:00.000Z",
   },
   {
     slug: "costco-hot-dog-tracker",
@@ -247,6 +257,7 @@ export const projects: Project[] = [
       "Economic Stability Research",
       "Market Trend Documentation",
     ],
+    released: "2022-11-17T00:00:00.000Z",
   },
   {
     slug: "todo-app",
@@ -264,5 +275,6 @@ export const projects: Project[] = [
       "Real-time Task Updates",
       "Responsive Design",
     ],
+    released: "2025-06-06T00:00:00.000Z",
   },
 ];
