@@ -1,12 +1,12 @@
 import { fail } from "@sveltejs/kit";
 import {
   AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY,
   AWS_REGION,
+  AWS_SECRET_ACCESS_KEY,
   EMAIL_FROM,
   EMAIL_TO,
 } from "$env/static/private";
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import { SendEmailCommand, SESClient } from "@aws-sdk/client-ses";
 import { v4 as uuidv4 } from "uuid";
 import type { Actions } from "./$types";
 
@@ -30,7 +30,7 @@ const logger = {
         level: "INFO",
         message,
         ...context,
-      })
+      }),
     );
   },
   error: (message: string, context: LogContext = {}) => {
@@ -40,7 +40,7 @@ const logger = {
         level: "ERROR",
         message,
         ...context,
-      })
+      }),
     );
   },
 };
