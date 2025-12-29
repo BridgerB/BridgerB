@@ -1,9 +1,9 @@
 {
-  "apiKey": "AIzaSyBHokVePlO0-aOMX_SRmOif-PKpVGNSIdM",
-  "authDomain": "bridgerb-com.firebaseapp.com",
-  "projectId": "bridgerb-com",
-  "storageBucket": "bridgerb-com.firebasestorage.app",
-  "messagingSenderId": "1015648328979",
-  "appId": "1:1015648328979:web:f9b2a491e3a0cd10984ee6",
-  "measurementId": "G-SHTHK91NN0"
+	"apiKey": "AIzaSyBHokVePlO0-aOMX_SRmOif-PKpVGNSIdM",
+	"authDomain": "bridgerb-com.firebaseapp.com",
+	"projectId": "bridgerb-com",
+	"storageBucket": "bridgerb-com.firebasestorage.app",
+	"messagingSenderId": "1015648328979",
+	"appId": "1:1015648328979:web:f9b2a491e3a0cd10984ee6",
+	"measurementId": "G-SHTHK91NN0"
 }
