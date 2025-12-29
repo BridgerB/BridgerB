@@ -1,6 +1,7 @@
 <!-- src/routes/+page.svelte -->
 <script>
   import { fade } from "svelte/transition";
+  import { resolve } from "$app/paths";
 </script>
 
 <header class="parallax" in:fade={{ duration: 600 }}>
@@ -8,7 +9,7 @@
     <div class="intro">
       <h1>I'M BRIDGER BELYEA</h1>
       <p>Full Stack Developer</p>
-      <a href="/contact" class="button">Contact Me</a>
+      <a href={resolve("/contact")} class="button">Contact Me</a>
     </div>
     <img src="/bridger.png" alt="Bridger Belyea Portrait" class="portrait" />
   </div>

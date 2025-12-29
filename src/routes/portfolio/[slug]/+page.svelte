@@ -2,15 +2,16 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { fade } from "svelte/transition";
+  import { goto } from "$app/navigation";
+  import { resolve } from "$app/paths";
   import { type Project, projects } from "$lib/assets/projects";
 
   // Get the current project based on the slug
   $: project = projects.find((p: Project) => p.slug === $page.params.slug);
 
   // If project not found, redirect to portfolio page
-  import { goto } from "$app/navigation";
   $: if (!project) {
-    goto("/portfolio");
+    goto(resolve("/portfolio"));
   }
 </script>
 
@@ -47,7 +48,10 @@
               Released {
                 new Date(project.released).toLocaleDateString(
                   "en-US",
-                  { month: "long", year: "numeric" },
+                  {
+                    month: "long",
+                    year: "numeric",
+                  },
                 )
               }
             </div>
@@ -57,7 +61,7 @@
         <div class="detail-section">
           <h3>Technologies</h3>
           <div class="tech-list">
-            {#each project.technologies as tech}
+            {#each project.technologies as tech (tech)}
               <span class="tech-tag">{tech}</span>
             {/each}
           </div>
@@ -66,7 +70,7 @@
         <div class="detail-section">
           <h3>Key Features</h3>
           <ul class="features-list">
-            {#each project.features as feature}
+            {#each project.features as feature (feature)}
               <li>{feature}</li>
             {/each}
           </ul>

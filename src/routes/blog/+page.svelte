@@ -1,6 +1,7 @@
 <!-- src/routes/blog/+page.svelte -->
 <script>
   import { fade } from "svelte/transition";
+  import { resolve } from "$app/paths";
 </script>
 
 <div class="blog-container" in:fade={{ duration: 600 }}>
@@ -10,7 +11,7 @@
     <div class="category-card">
       <h2>Drones</h2>
       <p>Reviews, guides, and tips about FPV drones and quadcopters</p>
-      <a href="/blog/drones" class="button">View Drones Posts</a>
+      <a href={resolve("/blog/drones")} class="button">View Drones Posts</a>
     </div>
     <!-- More categories can be added here -->
   </div>
