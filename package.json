@@ -12,8 +12,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.958.0",
     "@fortawesome/fontawesome-free": "^7.0.0",
-    "@sendgrid/mail": "^8.1.5",
     "devicon": "^2.17.0",
     "firebase": "^12.7.0",
     "the-new-css-reset": "^1.11.3",

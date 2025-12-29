@@ -1,37 +1,51 @@
-// src/routes/contact/+page.server.js
 import { fail } from "@sveltejs/kit";
-import { EMAIL_FROM, EMAIL_TO, SENDGRID_API_KEY } from "$env/static/private";
-import sgMail from "@sendgrid/mail";
+import {
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
+  AWS_REGION,
+  EMAIL_FROM,
+  EMAIL_TO,
+} from "$env/static/private";
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import { v4 as uuidv4 } from "uuid";
+import type { Actions } from "./$types";
 
-// Set SendGrid API key
-sgMail.setApiKey(SENDGRID_API_KEY);
+const ses = new SESClient({
+  region: AWS_REGION,
+  credentials: {
+    accessKeyId: AWS_ACCESS_KEY_ID,
+    secretAccessKey: AWS_SECRET_ACCESS_KEY,
+  },
+});
 
-// Structured logger
+interface LogContext {
+  [key: string]: unknown;
+}
+
 const logger = {
-  info: (message, context = {}) => {
+  info: (message: string, context: LogContext = {}) => {
     console.log(
       JSON.stringify({
         timestamp: new Date().toISOString(),
         level: "INFO",
         message,
         ...context,
-      }),
+      })
     );
   },
-  error: (message, context = {}) => {
+  error: (message: string, context: LogContext = {}) => {
     console.error(
       JSON.stringify({
         timestamp: new Date().toISOString(),
         level: "ERROR",
         message,
         ...context,
-      }),
+      })
     );
   },
 };
 
-export const actions = {
+export const actions: Actions = {
   default: async ({ request }) => {
     const requestId = uuidv4();
     const startTime = Date.now();
@@ -77,51 +91,56 @@ export const actions = {
       });
     }
 
-    // Prepare email
-    const msg = {
-      to: EMAIL_TO,
-      from: EMAIL_FROM,
-      subject: `New Contact Form Submission from ${name}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Message: ${message}
-      `,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
-      `,
-    };
+    const command = new SendEmailCommand({
+      Source: EMAIL_FROM,
+      Destination: {
+        ToAddresses: [EMAIL_TO],
+      },
+      Message: {
+        Subject: {
+          Data: `New Contact Form Submission from ${name}`,
+          Charset: "UTF-8",
+        },
+        Body: {
+          Text: {
+            Data: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+            Charset: "UTF-8",
+          },
+          Html: {
+            Data: `
+              <h2>New Contact Form Submission</h2>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Message:</strong> ${message}</p>
+            `,
+            Charset: "UTF-8",
+          },
+        },
+      },
+    });
 
     try {
-      logger.info("Sending email via SendGrid", {
+      logger.info("Sending email via AWS SES", {
         requestId,
-        to: msg.to,
-        from: msg.from,
+        to: EMAIL_TO,
+        from: EMAIL_FROM,
       });
-      await sgMail.send(msg);
+      const response = await ses.send(command);
       logger.info("Email sent successfully", {
         requestId,
+        messageId: response.MessageId,
         duration: Date.now() - startTime,
       });
-      return { success: true }; // Return success object instead of redirect
+      return { success: true };
     } catch (error) {
-      const errorDetails = {
+      const err = error as Error & { Code?: string; $metadata?: unknown };
+      logger.error("Failed to send email via AWS SES", {
         requestId,
         duration: Date.now() - startTime,
-        code: error.code || "UNKNOWN",
-        message: error.message || "Unknown error",
-        response: error.response
-          ? {
-            status: error.response.status,
-            headers: error.response.headers,
-            body: error.response.body,
-          }
-          : null,
-      };
-      logger.error("Failed to send email via SendGrid", errorDetails);
+        code: err.Code || "UNKNOWN",
+        message: err.message || "Unknown error",
+        metadata: err.$metadata,
+      });
       return fail(500, {
         error: "Failed to send message. Please try again later.",
         name,
